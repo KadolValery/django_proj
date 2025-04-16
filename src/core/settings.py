@@ -10,9 +10,11 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 import os
-#import environ
+import environ
 
 from dotenv import load_dotenv
+#from request.models import AUTH_USER_MODEL
+
 load_dotenv()
 
 from pathlib import Path
@@ -45,7 +47,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'shop'
+
+    'django_extensions',
+    'shop',
+    'authentication'
 ]
 
 MIDDLEWARE = [
@@ -137,3 +142,6 @@ STATICFILES_DIRS = [
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+AUTH_USER_MODEL = "authentication.CustomUser"
